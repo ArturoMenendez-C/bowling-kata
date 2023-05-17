@@ -14,6 +14,9 @@ public class BowlingGame {
         Roll secondRoll = new Roll(match.split("")[1]);
         score.addPoints(secondRoll);
 
+        Roll thirdRoll = new Roll(match.split("")[3]);
+        score.addPoints(thirdRoll);
+
         return score;
     }
 }
