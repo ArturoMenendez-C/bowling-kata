@@ -34,4 +34,14 @@ public class BowlingGameShould {
         assertEquals(expectedScore, gameScore);
     }
 
+    @Test
+    void score_is_three_when_three_pins_down_in_the_whole_game() {
+        BowlingGame bowlingGame = new BowlingGame();
+        int expectedScore = 3;
+
+        int gameScore = bowlingGame.calculateScore("3-|--|--|--|--|--|--|--|--|--||");
+
+        assertEquals(expectedScore, gameScore);
+    }
+
 }
