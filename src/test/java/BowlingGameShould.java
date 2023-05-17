@@ -82,4 +82,14 @@ public class BowlingGameShould {
 
         assertEquals(expectedScore, gameScore);
     }
+    @Test
+    void score_is_six_when_three_first_rolls_add_six() {
+        BowlingGame bowlingGame = new BowlingGame(new Score());
+        Score expectedScore = new Score();
+
+        expectedScore.addPoints(new Roll("6"));
+        Score gameScore = bowlingGame.calculateScore("12|3-|--|--|--|--|--|--|--|--||");
+
+        assertEquals(expectedScore, gameScore);
+    }
 }
