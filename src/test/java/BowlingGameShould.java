@@ -14,4 +14,14 @@ public class BowlingGameShould {
         assertEquals(expectedScore, gameScore);
     }
 
+    @Test
+    void score_is_one_when_one_pin_down_in_the_whole_game() {
+        BowlingGame bowlingGame = new BowlingGame();
+        int expectedScore = 1;
+
+        int gameScore = bowlingGame.calculateScore("1-|--|--|--|--|--|--|--|--|--||");
+
+        assertEquals(expectedScore, gameScore);
+    }
+
 }
