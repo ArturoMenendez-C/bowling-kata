@@ -15,20 +15,15 @@ public class BowlingGame {
             score.addPoints(firstRollPoints);
         }
 
-        if(firstRoll.equals("X")){
+        if (firstRoll.equals("X")){
             score.addPoints(10);
         }
 
-        if(gameRecord.equals("12|--|--|--|--|--|--|--|--|--||")) {
-            score.addPoints(2);
-        }
+        String secondRoll = gameRecord.split("")[1];
 
-        if(gameRecord.equals("52|--|--|--|--|--|--|--|--|--||")) {
-            score.addPoints(2);
-        }
-
-        if(gameRecord.equals("36|--|--|--|--|--|--|--|--|--||")) {
-            score.addPoints(6);
+        if (!secondRoll.equals("-") && !secondRoll.equals("|")) {
+            int secondRollPoints = Integer.parseInt(secondRoll);
+            score.addPoints(secondRollPoints);
         }
 
         return score;
