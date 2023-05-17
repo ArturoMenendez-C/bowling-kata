@@ -6,25 +6,13 @@ public class BowlingGame {
         this.score = score;
     }
 
-    public Score calculateScore(String gameRecord) {
+    public Score calculateScore(String match) {
 
-        String firstRoll = gameRecord.split("")[0];
+        Roll firstRoll = new Roll(match.split("")[0]);
+        score.addPoints(firstRoll);
 
-        if (!firstRoll.equals("-") && !firstRoll.equals("X")) {
-            int firstRollPoints = Integer.parseInt(firstRoll);
-            score.addPoints(firstRollPoints);
-        }
-
-        if (firstRoll.equals("X")){
-            score.addPoints(10);
-        }
-
-        String secondRoll = gameRecord.split("")[1];
-
-        if (!secondRoll.equals("-") && !secondRoll.equals("|")) {
-            int secondRollPoints = Integer.parseInt(secondRoll);
-            score.addPoints(secondRollPoints);
-        }
+        Roll secondRoll = new Roll(match.split("")[1]);
+        score.addPoints(secondRoll);
 
         return score;
     }

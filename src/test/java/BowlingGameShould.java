@@ -12,9 +12,9 @@ public class BowlingGameShould {
     private static Stream<Arguments> firstRollPinsDownCase () {
         String firstRollFormat = "-|--|--|--|--|--|--|--|--|--||";
         return Stream.of(
-                Arguments.of(1, "1" + firstRollFormat),
-                Arguments.of(2, "2" + firstRollFormat),
-                Arguments.of(3, "3" + firstRollFormat)
+                Arguments.of("1", "1" + firstRollFormat),
+                Arguments.of("2", "2" + firstRollFormat),
+                Arguments.of("3", "3" + firstRollFormat)
         );
     }
 
@@ -30,11 +30,11 @@ public class BowlingGameShould {
 
     @ParameterizedTest
     @MethodSource("firstRollPinsDownCase")
-    void score_is_one_when_one_pin_down_in_the_whole_game(int points, String gameRecord) {
+    void score_is_one_when_one_pin_down_in_the_whole_game(String pins, String gameRecord) {
         BowlingGame bowlingGame = new BowlingGame(new Score());
         Score expectedScore = new Score();
 
-        expectedScore.addPoints(points);
+        expectedScore.addPoints(new Roll(pins));
         Score gameScore = bowlingGame.calculateScore(gameRecord);
 
         assertEquals(expectedScore, gameScore);
@@ -45,7 +45,7 @@ public class BowlingGameShould {
         BowlingGame bowlingGame = new BowlingGame(new Score());
         Score expectedScore = new Score();
 
-        expectedScore.addPoints(10);
+        expectedScore.addPoints(new Roll("10"));
         Score gameScore = bowlingGame.calculateScore("X|--|--|--|--|--|--|--|--|--||");
 
         assertEquals(expectedScore, gameScore);
@@ -55,7 +55,7 @@ public class BowlingGameShould {
         BowlingGame bowlingGame = new BowlingGame(new Score());
         Score expectedScore = new Score();
 
-        expectedScore.addPoints(3);
+        expectedScore.addPoints(new Roll("3"));
         Score gameScore = bowlingGame.calculateScore("12|--|--|--|--|--|--|--|--|--||");
 
         assertEquals(expectedScore, gameScore);
@@ -66,7 +66,7 @@ public class BowlingGameShould {
         BowlingGame bowlingGame = new BowlingGame(new Score());
         Score expectedScore = new Score();
 
-        expectedScore.addPoints(7);
+        expectedScore.addPoints(new Roll("7"));
         Score gameScore = bowlingGame.calculateScore("52|--|--|--|--|--|--|--|--|--||");
 
         assertEquals(expectedScore, gameScore);
@@ -77,7 +77,7 @@ public class BowlingGameShould {
         BowlingGame bowlingGame = new BowlingGame(new Score());
         Score expectedScore = new Score();
 
-        expectedScore.addPoints(9);
+        expectedScore.addPoints(new Roll("9"));
         Score gameScore = bowlingGame.calculateScore("36|--|--|--|--|--|--|--|--|--||");
 
         assertEquals(expectedScore, gameScore);

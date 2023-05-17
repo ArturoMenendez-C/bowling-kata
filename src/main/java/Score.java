@@ -5,8 +5,8 @@ public class Score {
         this.points = 0;
     }
 
-    public void addPoints(int newPoints) {
-        points += newPoints;
+    public void addPoints(Roll newRoll) {
+        points += newRoll.getPinsHit();
     }
 
     @Override
