@@ -27,6 +27,10 @@ public class BowlingGame {
             score.addPoints(2);
         }
 
+        if(gameRecord.equals("36|--|--|--|--|--|--|--|--|--||")) {
+            score.addPoints(6);
+        }
+
         return score;
     }
 }
