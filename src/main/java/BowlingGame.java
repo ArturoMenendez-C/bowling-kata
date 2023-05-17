@@ -15,6 +15,10 @@ public class BowlingGame {
             score.addPoints(firstRollPoints);
         }
 
+        if(firstRoll.equals("X")){
+            score.addPoints(10);
+        }
+
         return score;
     }
 }
