@@ -39,4 +39,15 @@ public class BowlingGameShould {
 
         assertEquals(expectedScore, gameScore);
     }
+
+    @Test
+    void score_is_ten_when_first_roll_is_strike() {
+        BowlingGame bowlingGame = new BowlingGame(new Score());
+        Score expectedScore = new Score();
+
+        expectedScore.addPoints(10);
+        Score gameScore = bowlingGame.calculateScore("X|--|--|--|--|--|--|--|--|--||");
+
+        assertEquals(expectedScore, gameScore);
+    }
 }

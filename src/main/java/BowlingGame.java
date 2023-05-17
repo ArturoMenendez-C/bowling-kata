@@ -10,7 +10,7 @@ public class BowlingGame {
 
         String firstRoll = gameRecord.split("")[0];
 
-        if (!firstRoll.equals("-")) {
+        if (!firstRoll.equals("-") && !firstRoll.equals("X")) {
             int firstRollPoints = Integer.parseInt(firstRoll);
             score.addPoints(firstRollPoints);
         }
