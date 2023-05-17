@@ -17,4 +17,10 @@ public class Score {
         return points == score.points;
     }
 
+    @Override
+    public String toString() {
+        return "Score{ " +
+                "points=" + points +
+                " }";
+    }
 }
