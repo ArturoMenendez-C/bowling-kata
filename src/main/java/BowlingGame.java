@@ -23,6 +23,10 @@ public class BowlingGame {
             score.addPoints(2);
         }
 
+        if(gameRecord.equals("52|--|--|--|--|--|--|--|--|--||")) {
+            score.addPoints(2);
+        }
+
         return score;
     }
 }
